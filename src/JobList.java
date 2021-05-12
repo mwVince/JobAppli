@@ -73,7 +73,7 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             System.out.println("Role: " + list.get(0).getRole());
             System.out.println("Company: " + list.get(0).getCompany());
             System.out.println("Get rejected by this one? :( (Y/N) ");
-            if(sc.nextLine().toLowerCase() == "y") {
+            if(sc.nextLine().toLowerCase().equals("y")) {
                 list.get(0).setStatus("Rejected");
                 return;
             }
@@ -95,7 +95,7 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             System.out.println("Role: " + list.get(0).getRole());
             System.out.println("Company: " + list.get(0).getCompany());
             System.out.println("Change status for this one? (Y/N) ");
-            if(sc.nextLine().toLowerCase() == "y") {
+            if(sc.nextLine().toLowerCase().equals("y")) {
                 list.get(0).setStatus(sc.nextLine());
                 return;
             }
