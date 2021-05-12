@@ -1,0 +1,15 @@
+# IntelliJ IDE
+.idea/
+out/
+*.iml
+
+# Compiled Java Class
+*.class
+
+# Personal Database
+db/
+*.txt
+
+# MacOs System File
+.DS_Store
+
