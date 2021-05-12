@@ -9,6 +9,7 @@ out/
 # Personal Database
 db/
 *.txt
+src/JobReader.java
 
 # MacOs System File
 .DS_Store
