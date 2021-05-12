@@ -54,6 +54,8 @@ class JobAppli {
                 case "q":
                     save();
                     System.exit(0);
+                default:
+                    break;
             }
             System.out.println();
         }
