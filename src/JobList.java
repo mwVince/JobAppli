@@ -78,6 +78,7 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
                 System.out.println("Done");
                 return;
             }
+            list.remove(0);
         }
         System.out.println("That's all data for " + company);
         sc.close();
@@ -103,6 +104,7 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
                 System.out.println("Done");
                 return;
             }
+            list.remove(0);
         }
         System.out.println("That's all data for " + company);
         sc.close();
