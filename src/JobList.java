@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class JobList extends ArrayList<JobNode> implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    
     // Searches applied job of certain company
     public ArrayList<JobNode> search(String company) {
         ArrayList<JobNode> result = new ArrayList<>();
@@ -24,24 +24,24 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
     // Edit a job
     public void edit(String company) {
         ArrayList<JobNode> list = search(company);
+        Scanner scanner = new Scanner(System.in);
         if(list.isEmpty()) {
             System.out.println("No data find for " + company);
             return;
         }
 
-        Scanner sc = new Scanner(System.in);
         while(!list.isEmpty()) {
             System.out.println(list.get(0).getRole());
             System.out.println(list.get(0).getCompany());
             System.out.println("Edit information for this one? (Y/N) ");
-            if(sc.nextLine().toLowerCase() == "y") {
+            if(scanner.nextLine().toLowerCase() == "y") {
                 System.out.println("Leave empty if not changing");
                 System.out.print("Role: ");
-                String newRole = sc.nextLine();
+                String newRole = scanner.nextLine();
                 System.out.print("Company: ");
-                String newCompany = sc.nextLine();
+                String newCompany = scanner.nextLine();
                 System.out.print("Link: ");
-                String newLink = sc.nextLine();
+                String newLink = scanner.nextLine();
 
                 if(!newRole.isEmpty()) {
                     list.get(0).setRole(newRole);
@@ -57,23 +57,23 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             }
         }
         System.out.println("That's all data for " + company);
-        sc.close();
     }
 
     // Gets rejected
     public void reject(String company) {
         ArrayList<JobNode> list = search(company);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
         if(list.isEmpty()) {
             System.out.println("No data find for " + company);
             return;
         }
-
-        Scanner sc = new Scanner(System.in);
+        
         while(!list.isEmpty()) {
             System.out.println("Role: " + list.get(0).getRole());
             System.out.println("Company: " + list.get(0).getCompany());
             System.out.println("Get rejected by this one? :( (Y/N) ");
-            if(sc.nextLine().toLowerCase().equals("y")) {
+            if(scanner.nextLine().toLowerCase().equals("y")) {
                 list.get(0).setStatus("Rejected");
                 System.out.println("Done");
                 return;
@@ -81,25 +81,25 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             list.remove(0);
         }
         System.out.println("That's all data for " + company);
-        sc.close();
     }
 
     // Updates status manually
     public void changeStatus(String company) {
         ArrayList<JobNode> list = search(company);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
         if(list.isEmpty()) {
             System.out.println("No data find for " + company);
             return;
         }
 
-        Scanner sc = new Scanner(System.in);
         while(!list.isEmpty()) {
             System.out.println("Role: " + list.get(0).getRole());
             System.out.println("Company: " + list.get(0).getCompany());
             System.out.println("Change status for this one? (Y/N) ");
-            if(sc.nextLine().toLowerCase().equals("y")) {
+            if(scanner.nextLine().toLowerCase().equals("y")) {
                 System.out.print("New Status: ");
-                String newStatus = sc.nextLine();
+                String newStatus = scanner.nextLine();
                 list.get(0).setStatus(newStatus);
                 System.out.println("Done");
                 return;
@@ -107,7 +107,6 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             list.remove(0);
         }
         System.out.println("That's all data for " + company);
-        sc.close();
     }
 
     public void showAll() {
@@ -124,9 +123,9 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
     }
 
     public void find(String company) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println();
         ArrayList<JobNode> list = search(company);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
         if(list.isEmpty()) {
             System.out.println("No Result Found");
         }
@@ -134,7 +133,7 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             for(JobNode node: list) {
                 System.out.println(node.toString());
                 System.out.print("\nNext");
-                sc.nextLine();
+                scanner.nextLine();
                 System.out.println();
                 continue;
             }
