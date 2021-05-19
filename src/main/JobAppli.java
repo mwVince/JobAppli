@@ -1,3 +1,5 @@
+package main;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -109,15 +111,15 @@ class JobAppli {
     private static JobList readJobList() throws IOException {
         JobList jobList = null;
         try {
-            FileInputStream fileIn = new FileInputStream(dbPath + "JobList.ser");
+            FileInputStream fileIn = new FileInputStream(dbPath + "main.JobList.ser");
             ObjectInputStream inStream = new ObjectInputStream(fileIn);
             jobList = (JobList) inStream.readObject();
             inStream.close();
             fileIn.close();
         } catch (FileNotFoundException e) {
-            System.out.println("JobList Not Found.");
+            System.out.println("main.JobList Not Found.");
             System.out.println("Initiating..");
-            File f = new File(dbPath + "JobList.ser");
+            File f = new File(dbPath + "main.JobList.ser");
             new File(dbPath).mkdir();
             f.createNewFile();
             jobList = new JobList();
@@ -132,7 +134,7 @@ class JobAppli {
 
     private static void save() {
         try {
-            FileOutputStream fileOut = new FileOutputStream(dbPath + "JobList.ser");
+            FileOutputStream fileOut = new FileOutputStream(dbPath + "main.JobList.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(jobList);
             out.close();
