@@ -186,6 +186,13 @@ public class TopBarController {
     }
 
     /**
+     * Called by other classes to save automatically
+     */
+    public void autoSave() {
+        handleSave();
+    }
+
+    /**
      * @return topBar
      */
     public HBox getTopBar() {

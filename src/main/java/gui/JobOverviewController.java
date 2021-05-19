@@ -268,6 +268,7 @@ public class JobOverviewController {
             boolean isOkClicked = mainApp.showJobEditor(selectedJobNode, false);
             if(isOkClicked) {
                 showJobDetail(selectedJobNode, jobNodeTableView.getSelectionModel().getSelectedIndex());
+                mainApp.getTopBarController().autoSave();
             }
         }
     }

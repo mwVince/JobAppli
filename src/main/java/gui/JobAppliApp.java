@@ -26,6 +26,7 @@ public class JobAppliApp extends Application {
     private BorderPane rootLayout;
     private ObservableList<JobNode> jobNodeObservableList = FXCollections.observableArrayList();
     private FilteredList<JobNode> filteredList = new FilteredList<>(jobNodeObservableList, p -> true);
+    private TopBarController topBarController;
 
 
     /**
@@ -96,8 +97,8 @@ public class JobAppliApp extends Application {
      * Displays topBar
      */
     public void showTopBar() {
-        TopBarController controller = new TopBarController(this);
-        rootLayout.setTop(controller.getTopBar());
+        topBarController = new TopBarController(this);
+        rootLayout.setTop(topBarController.getTopBar());
     }
 
     /**
@@ -184,6 +185,10 @@ public class JobAppliApp extends Application {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setContentText("Can not save data to " + file.getName());
         }
+    }
+
+    public TopBarController getTopBarController() {
+        return topBarController;
     }
 
 }
