@@ -3,37 +3,24 @@ package gui;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+
 /**
  * Model class for JobNode
  */
 public class JobNode {
-    private StringProperty role;
-    private StringProperty company;
-    private StringProperty link;
-    private StringProperty status;
-
+    private static final long serialVersionUID = 1L;
+    private transient StringProperty role;
+    private transient StringProperty company;
+    private transient StringProperty link;
+    private transient StringProperty status;
     /**
-     * Blank constructor
+     * Default constructor
      */
     public JobNode() {
         this.role = new SimpleStringProperty();
         this.company = new SimpleStringProperty();
         this.link = new SimpleStringProperty();
         this.status = new SimpleStringProperty();
-    }
-
-    /**
-     * Constructor with initial values
-     *
-     * @param role
-     * @param company
-     * @param link
-     */
-    public JobNode(String role, String company, String link) {
-        this.role = new SimpleStringProperty(role);
-        this.company = new SimpleStringProperty(company);
-        this.link = new SimpleStringProperty(link);
-        this.status = new SimpleStringProperty("");
     }
 
     public String getRole() {

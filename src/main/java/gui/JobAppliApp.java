@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.io.File;
+import java.io.*;
 import java.util.prefs.Preferences;
 
 /**
@@ -43,7 +43,6 @@ public class JobAppliApp extends Application {
         initialize(primaryStage);
         showJobOverview();
         showTopBar();
-
     }
 
     /**
@@ -148,14 +147,22 @@ public class JobAppliApp extends Application {
      */
     public void loadJobDataFromFile(File file) {
         try {
+            System.out.println("DONE");
             JAXBContext context = JAXBContext.newInstance(JobListWrapper.class);
+            System.out.println("DONE2");
             Unmarshaller unmarshaller = context.createUnmarshaller();
-
+            System.out.println("DONE3");
             JobListWrapper wrapper = (JobListWrapper) unmarshaller.unmarshal(file);
+            System.out.println("DONE4");
 
             jobNodeObservableList.clear();
+            System.out.println(jobNodeObservableList.size());
             jobNodeObservableList.addAll(wrapper.getJobs());
+            System.out.println(jobNodeObservableList.size());
             setJobFilePath(file);
+        }
+        catch(javax.xml.bind.JAXBException e) {
+            e.printStackTrace();
         }
         catch(Exception e) {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -175,6 +182,7 @@ public class JobAppliApp extends Application {
 
             JobListWrapper wrapper = new JobListWrapper();
             wrapper.setJobs(jobNodeObservableList);
+
             marshaller.marshal(wrapper, file);
             setJobFilePath(file);
         }
