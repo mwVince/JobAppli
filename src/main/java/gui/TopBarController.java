@@ -116,7 +116,7 @@ public class TopBarController {
     }
 
     /**
-     * Opens a FileChooser and loads data from file
+     * Opens a FileChooser and loads data from .ser file
      */
     private void handleOpen() {
         FileChooser fileChooser = new FileChooser();
@@ -154,8 +154,8 @@ public class TopBarController {
 
         File jobFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
         if(jobFile != null) {
-            if (!jobFile.getPath().endsWith(".xml")) {
-                jobFile = new File(jobFile.getPath() + ".xml");
+            if (!jobFile.getPath().endsWith(".ser")) {
+                jobFile = new File(jobFile.getPath() + ".ser");
             }
             mainApp.saveJobDataToFile(jobFile);
         }

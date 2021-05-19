@@ -2,7 +2,6 @@ package gui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -37,7 +36,7 @@ public class JobReader {
 
                 bufferedReader.readLine();
             }
-            System.out.println(jobNodeObservableList.size());
+            System.out.println(jobNodeObservableList.size() + " jobs read");
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -49,6 +48,7 @@ public class JobReader {
 
     /**
      * Saves Job data to .xml file
+     *
      * @param file
      */
     public static void saveToXML(File file) {
