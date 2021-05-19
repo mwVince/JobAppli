@@ -17,7 +17,7 @@ Put the unarchived directories at the path you want and set environmental variab
 Then run the jar with `java --module-path $PATH_TO_FX --add-modules javafx.controls -jar Java_Playground.jar`
 
 ### Command Line Application
-1. Compile main classes with command `javac src/main/*.java`\
+1. Compile main classes with command `javac src/main/*.java`
 2. Run JobAppli with `java src/main/JobAppli.class`\
 You can also compile with IDE or other build tools.
 
