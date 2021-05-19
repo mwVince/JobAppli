@@ -154,8 +154,8 @@ public class TopBarController {
 
         File jobFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
         if(jobFile != null) {
-            if (!jobFile.getPath().endsWith(".ser")) {
-                jobFile = new File(jobFile.getPath() + ".ser");
+            if (!jobFile.getPath().endsWith(".xml")) {
+                jobFile = new File(jobFile.getPath() + ".xml");
             }
             mainApp.saveJobDataToFile(jobFile);
         }
