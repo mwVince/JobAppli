@@ -1,4 +1,4 @@
-package main;
+package cli;
 
 import java.io.*;
 import java.util.Scanner;

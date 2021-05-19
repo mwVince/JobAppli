@@ -51,7 +51,7 @@ public class JobAppliApp extends Application {
     public void initialize(Stage primaryStage) {
         rootLayout = new BorderPane();
         rootLayout.setPrefSize(900, 500);
-        rootLayout.getStylesheets().add("gui/DarkTheme.css");
+        rootLayout.getStylesheets().add("DarkTheme.css");
 
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("JobAppli");
@@ -147,18 +147,12 @@ public class JobAppliApp extends Application {
      */
     public void loadJobDataFromFile(File file) {
         try {
-            System.out.println("DONE");
             JAXBContext context = JAXBContext.newInstance(JobListWrapper.class);
-            System.out.println("DONE2");
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            System.out.println("DONE3");
             JobListWrapper wrapper = (JobListWrapper) unmarshaller.unmarshal(file);
-            System.out.println("DONE4");
 
             jobNodeObservableList.clear();
-            System.out.println(jobNodeObservableList.size());
             jobNodeObservableList.addAll(wrapper.getJobs());
-            System.out.println(jobNodeObservableList.size());
             setJobFilePath(file);
         }
         catch(javax.xml.bind.JAXBException e) {

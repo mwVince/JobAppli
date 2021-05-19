@@ -85,7 +85,7 @@ public class JobEditController {
         jobEditorPane.setPadding(new Insets(20, 10, 10, 10));
         jobEditorPane.setPrefSize(600, 250);
         jobEditorPane.setVgap(10);
-        jobEditorPane.getStylesheets().add("gui/DarkTheme.css");
+        jobEditorPane.getStylesheets().add("DarkTheme.css");
 
         ColumnConstraints col1 = new ColumnConstraints();
         col1.setPercentWidth(25);

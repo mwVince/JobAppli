@@ -14,3 +14,9 @@ main/JobReader.java
 
 # MacOs System File
 .DS_Store
+
+# Maven
+target/
+test/
+src/test/
+

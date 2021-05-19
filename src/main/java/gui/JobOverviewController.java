@@ -223,7 +223,7 @@ public class JobOverviewController {
      */
     private boolean initDeleteConfirm(JobNode jobNode) {
         deleteConfirm = new Alert(Alert.AlertType.CONFIRMATION);
-        deleteConfirm.getDialogPane().getStylesheets().add("gui/DarkTheme.css");
+        deleteConfirm.getDialogPane().getStylesheets().add("DarkTheme.css");
         deleteConfirm.setTitle("Delete Confirmation");
         deleteConfirm.setHeaderText(null);
         deleteConfirm.setGraphic(null);
