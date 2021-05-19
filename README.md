@@ -1,4 +1,4 @@
-# main.JobAppli
+# JobAppli
 Light weighted application written in Java, to keep record of applied job during job search. You can use it to add entry when you apply a new job, or update when hear back from a previous application.\
 Please feel free to use it if you want to keep track of what job opportunity you have applied. Good luck on searching jobs.
 
