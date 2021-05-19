@@ -1,3 +1,5 @@
+package main;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,7 +36,7 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
             System.out.println(list.get(0).getRole());
             System.out.println(list.get(0).getCompany());
             System.out.println("Edit information for this one? (Y/N) ");
-            if(scanner.nextLine().toLowerCase() == "y") {
+            if(scanner.nextLine().toLowerCase().equals("y")) {
                 System.out.println("Leave empty if not changing");
                 System.out.print("Role: ");
                 String newRole = scanner.nextLine();
@@ -157,6 +159,5 @@ public class JobList extends ArrayList<JobNode> implements Serializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 }
