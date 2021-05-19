@@ -293,6 +293,7 @@ public class JobOverviewController {
         if(selectedJobNode != null) {
             selectedJobNode.setStatus("Rejected");
             showJobDetail(selectedJobNode, jobNodeTableView.getSelectionModel().getSelectedIndex());
+            mainApp.getTopBarController().autoSave();
         }
     }
 
