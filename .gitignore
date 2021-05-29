@@ -9,7 +9,6 @@ out/
 # Personal Database
 db/
 *.txt
-*.xml
 main/JobReader.java
 
 # MacOs System File
