@@ -23,6 +23,9 @@ Then run the jar with `java --module-path $PATH_TO_FX --add-modules javafx.contr
 You can also compile with IDE or other build tools.
 
 ## Patch Note
+### V 2.1
+- Add textPrompt to the searchBar
+
 ### V 2.0
 - Added GUI for JobAppli
 - Fixed bug
