@@ -41,7 +41,6 @@ public class JobOverviewController {
 
     private VBox tableVbox;
 
-
     private HBox buttonBox;
     private GridPane detailLayoutPane;
 
@@ -75,6 +74,7 @@ public class JobOverviewController {
     private void initFilter() {
         filteredJobNodeList = new FilteredList<>(mainApp.getJobNodeObservableList());
         filterField.setStyle("-fx-background-color: #D3D3D3;");
+        filterField.setPromptText("Search Company");
         filterField.textProperty().addListener(((observable, oldValue, newValue) -> {
             filteredJobNodeList.setPredicate(jobNode -> {
                 if (newValue == null || newValue.isEmpty()) {
