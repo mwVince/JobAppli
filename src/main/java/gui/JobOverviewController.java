@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 import javafx.scene.text.Text;
@@ -75,6 +76,12 @@ public class JobOverviewController {
         filteredJobNodeList = new FilteredList<>(mainApp.getJobNodeObservableList());
         filterField.setStyle("-fx-background-color: #D3D3D3;");
         filterField.setPromptText("Search Company");
+        filterField.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                filterField.clear();
+            }
+        });
         filterField.textProperty().addListener(((observable, oldValue, newValue) -> {
             filteredJobNodeList.setPredicate(jobNode -> {
                 if (newValue == null || newValue.isEmpty()) {
