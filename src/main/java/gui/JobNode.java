@@ -23,6 +23,13 @@ public class JobNode {
         this.status = new SimpleStringProperty();
     }
 
+    public JobNode(String role, String company, String link, String status) {
+        this.role = new SimpleStringProperty(role);
+        this.company = new SimpleStringProperty(company);
+        this.link = new SimpleStringProperty(link);
+        this.status = new SimpleStringProperty(status);
+    }
+
     public String getRole() {
         return role.get();
     }

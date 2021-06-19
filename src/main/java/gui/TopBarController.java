@@ -11,6 +11,8 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TopBarController {
     private Button addButton = new Button("Add Job (a)");
@@ -121,12 +123,17 @@ public class TopBarController {
     private void handleOpen() {
         FileChooser fileChooser = new FileChooser();
 
-        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("XML files (.xml)", "*.xml");
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("XML/txt files (.xml/.txt)", "*.xml", "*.txt");
         fileChooser.getExtensionFilters().add(extensionFilter);
 
         File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
         if(file != null) {
-            mainApp.loadJobDataFromFile(file);
+            if (file.getName().substring(file.getName().length() - 3).equals("xml")) {
+                mainApp.loadJobDataFromFile(file);
+            }
+            else {
+                mainApp.loadJobDataFromExport(file);
+            }
         }
     }
 
@@ -151,6 +158,7 @@ public class TopBarController {
 
         FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("XML files (.xml)", "*.xml");
         fileChooser.getExtensionFilters().add(extensionFilter);
+        fileChooser.setInitialFileName("job_db");
 
         File jobFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
         if(jobFile != null) {
@@ -170,13 +178,22 @@ public class TopBarController {
         }
 
         try {
-            File f = new File("Job_Applied.txt");
-            PrintWriter printWriter = new PrintWriter(f);
+            FileChooser fileChooser = new FileChooser();
+            Date date = new Date();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMddyyyy");
+
+            FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("txt files (.txt)", "*.txt");
+            fileChooser.getExtensionFilters().add(extensionFilter);
+            fileChooser.setInitialFileName("Job_Applied_" + simpleDateFormat.format(date));
+
+            File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+            PrintWriter printWriter = new PrintWriter(file);
 
             int counter = 0;
             for(JobNode jobNode: mainApp.getJobNodeObservableList()) {
                 printWriter.println(++counter + ".");
                 printWriter.println(jobNode.toString());
+                printWriter.println();
             }
 
             printWriter.close();
