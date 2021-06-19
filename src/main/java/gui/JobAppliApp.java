@@ -187,8 +187,38 @@ public class JobAppliApp extends Application {
         }
     }
 
+    /**
+     * Loads Job data from saved .txt file
+     *
+     * @param file
+     */
+    public void loadJobDataFromExport(File file) {
+        try {
+            jobNodeObservableList.clear();
+
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            while (bufferedReader.ready()) {
+                bufferedReader.readLine();
+                String role = bufferedReader.readLine();
+                String company = bufferedReader.readLine();
+                String link = bufferedReader.readLine();
+                String status = bufferedReader.readLine();
+
+                jobNodeObservableList.add(new JobNode(role, company, link, status));
+                bufferedReader.readLine();
+            }
+            setJobFilePath(file);
+        }
+        catch(Exception e) {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setContentText("Can not load data from " + file.getName());
+        }
+    }
+
     public TopBarController getTopBarController() {
         return topBarController;
     }
+
+
 
 }

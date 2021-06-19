@@ -287,7 +287,7 @@ public class JobOverviewController {
         JobNode selectedJobNode = jobNodeTableView.getSelectionModel().getSelectedItem();
         if(selectedJobNode != null) {
             if(initDeleteConfirm(selectedJobNode)) {
-                jobNodeTableView.getItems().remove(jobNodeTableView.getSelectionModel().getSelectedIndex());
+                mainApp.getJobNodeObservableList().remove(jobNodeTableView.getSelectionModel().getSelectedIndex());
             }
         }
     }
