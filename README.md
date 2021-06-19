@@ -16,6 +16,7 @@ In the case of Java 11+, user can download JavaFX SDK from [Here](https://gluonh
 Put the unarchived directories at the path you want and set environmental variable with `export PATH_TO_FX=<path_to_sdk>/lib/`\
 Then run the jar with `java --module-path $PATH_TO_FX --add-modules javafx.controls -jar Java_Playground.jar`
 2. For Java 11+, JAXB is removed from the JDK completely. To allow support for JDXB, please refer to [These Solutions](https://www.jesperdj.com/2018/09/30/jaxb-on-java-9-10-11-and-beyond/) to add dependency.
+3. **I included pom file for maven build. Please use it to create jar file with needed dependencies!**
 
 ### Command Line Application
 1. Compile main classes with command `javac src/main/*.java`
@@ -23,6 +24,11 @@ Then run the jar with `java --module-path $PATH_TO_FX --add-modules javafx.contr
 You can also compile with IDE or other build tools.
 
 ## Patch Note
+### V 2.2
+- Fixed bug for export function
+- Fixed bug for delete function
+- Added support to load data from exported txt file
+
 ### V 2.1
 - Added textPrompt to the searchBar
 - Updated searchBar user interaction
