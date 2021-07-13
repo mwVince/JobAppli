@@ -132,7 +132,8 @@ public class JobAppliApp extends Application {
     public void setJobFilePath(File file) {
         Preferences preferences = Preferences.userNodeForPackage(JobAppliApp.class);
         if(file != null) {
-            preferences.put("filePath", file.getPath());
+            String filePath = file.getPath().replace("txt", "xml");
+            preferences.put("filePath", filePath);
             primaryStage.setTitle("JobAppli - " + file.getName());
         }
         else {
